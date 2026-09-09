@@ -33,6 +33,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -63,7 +64,7 @@ h1, h2, h3, h4 {
   transform: translateY(0); 
 }
 
-/* Navbar */
+/* Navbar Desktop */
 .navbar {
   position: fixed;
   top: 0;
@@ -254,7 +255,7 @@ h1, h2, h3, h4 {
   color: var(--bg-color); 
 }
 
-/* Container & Presisi Grid Layout */
+/* Container Base */
 .container { 
   width: 100%;
   max-width: 1200px; 
@@ -278,15 +279,20 @@ h1, h2, h3, h4 {
   background: var(--bg-subtle); 
   border-y: 1px solid var(--border-color); 
   padding: 40px 0; 
+  width: 100%;
 }
 .stats-flex { 
   display: flex; 
   justify-content: space-around; 
   padding: 0 24px; 
   text-align: center; 
+  width: 100%;
 }
-.stat-box h3 { font-size: 2.2rem; color: var(--accent-blue); }
-.stat-box p { color: var(--text-muted); font-size: 0.85rem; }
+.stat-box {
+  padding: 10px;
+}
+.stat-box h3 { font-size: 2.2rem; color: var(--accent-blue); word-break: break-word; }
+.stat-box p { color: var(--text-muted); font-size: 0.85rem; word-break: break-word; }
 
 /* About & Portrait */
 .about-text h2, .portrait-text h2 { font-size: 2.5rem; line-height: 1.15; margin-bottom: 20px; }
@@ -323,26 +329,38 @@ h1, h2, h3, h4 {
 .timer-box span { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--accent-blue); }
 .timer-box p { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; }
 
-/* Schedule Table */
+/* Schedule Table Container Fix */
 .schedule-table-wrapper { 
   width: 100%; 
   overflow-x: auto; 
   -webkit-overflow-scrolling: touch; 
   border: 1px solid var(--border-color); 
   border-radius: 12px; 
+  background: var(--card-bg);
 }
 
 .schedule-table { 
   width: 100%; 
-  min-width: 600px; 
+  min-width: 680px; 
   border-collapse: collapse; 
   text-align: left; 
-  background: var(--card-bg); 
 }
-.schedule-table th, .schedule-table td { padding: 20px 24px; border-bottom: 1px solid var(--border-color); font-size: 0.9rem; }
-.schedule-table th { background: var(--bg-subtle); font-family: var(--font-heading); color: var(--text-main); white-space: nowrap; }
+.schedule-table th, .schedule-table td { 
+  padding: 18px 20px; 
+  border-bottom: 1px solid var(--border-color); 
+  font-size: 0.88rem; 
+  white-space: nowrap; 
+}
+.schedule-table th { background: var(--bg-subtle); font-family: var(--font-heading); color: var(--text-main); }
 
-.badge { padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; display: inline-block; white-space: nowrap; }
+.badge { 
+  padding: 6px 14px; 
+  border-radius: 20px; 
+  font-size: 0.75rem; 
+  font-weight: 600; 
+  display: inline-block; 
+  white-space: nowrap; 
+}
 .badge.available { background: #dcfce7; color: #15803d; }
 .badge.limited { background: #fef3c7; color: #b45309; }
 
@@ -418,7 +436,7 @@ h1, h2, h3, h4 {
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
 .gallery-item:hover img { transform: scale(1.05); }
 
-/* Footer & Copyable Info */
+/* Footer */
 .footer { background: #0b0f19; color: #fff; padding-top: 80px; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 60px; padding-bottom: 60px; }
 .footer-brand .logo { color: #fff; margin-bottom: 16px; }
@@ -534,30 +552,30 @@ h1, h2, h3, h4 {
 .timeline-item h4 { font-size: 1rem; margin-bottom: 4px; }
 .timeline-item p { font-size: 0.85rem; color: var(--text-muted); }
 
-/* PERFECT SIMETRIS & SLIM NAVBAR RESPONSIVE FOR MOBILE & TABLETS */
+/* FULL RESPONSIVE MEDIA QUERIES FOR ALL MOBILE DEVICES */
 @media (max-width: 900px) {
   .navbar { 
-    padding: 16px 20px; 
+    padding: 14px 16px; 
   }
   
   .mobile-menu-btn { 
     display: flex; 
   }
 
-  /* Navbar Samping Kanan Slim (Diperkecil dari 280px jadi 220px) */
+  /* Navbar Mobile Samping Ringkas (Lebar cuma 180px) */
   .nav-links {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 220px; /* Dibuat lebih slim & pas di HP */
+    width: 180px; /* Dibuat compact agar tidak menutupi setengah website */
     height: 100vh;
     background: var(--card-bg);
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 18px;
-    padding: 30px 24px;
-    box-shadow: -8px 0 25px rgba(0,0,0,0.18);
+    gap: 16px;
+    padding: 24px 16px;
+    box-shadow: -8px 0 25px rgba(0,0,0,0.2);
     transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 100;
   }
@@ -566,85 +584,91 @@ h1, h2, h3, h4 {
     right: 0; 
   }
 
-  .nav-links li {
-    width: 100%;
-  }
+  .nav-links li { width: 100%; }
+  .nav-links a { font-size: 0.85rem; display: block; width: 100%; }
 
-  .nav-links a {
-    font-size: 0.9rem;
-    display: block;
-    width: 100%;
-  }
+  .btn-nav { text-align: center; padding: 8px 14px !important; font-size: 0.8rem; }
 
-  .btn-nav {
-    text-align: center;
-    padding: 10px 16px !important;
-  }
-
-  /* Hero Section Presisi */
+  /* Hero Section */
   .hero { 
-    padding: 0 20px; 
+    padding: 0 16px; 
     height: auto; 
     min-height: 100vh; 
-    padding-top: 100px; 
-    padding-bottom: 50px; 
+    padding-top: 90px; 
+    padding-bottom: 40px; 
   }
   .hero-content h1 { 
-    font-size: 2.2rem; 
+    font-size: 2rem; 
     line-height: 1.15; 
   }
   .hero-desc { 
-    font-size: 0.92rem; 
+    font-size: 0.88rem; 
   }
   
   .weather-widget {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    padding: 10px 16px;
+    gap: 8px;
+    padding: 8px 12px;
     border-radius: 20px;
     width: 100%;
   }
   
   .weather-divider { display: none; }
   .hero-cta-group { flex-direction: column; width: 100%; }
-  .btn-primary, .btn-secondary { width: 100%; text-align: center; padding: 14px 20px; }
+  .btn-primary, .btn-secondary { width: 100%; text-align: center; padding: 12px 18px; font-size: 0.88rem; }
 
-  /* Layout Simetris Kiri-Kanan 20px */
+  /* Container Presisi Kiri-Kanan 16px */
   .container { 
-    padding: 50px 20px; 
+    padding: 40px 16px; 
   }
   
-  .grid-2, .services-grid, .dest-grid, .testimonial-grid, .gallery-grid, .footer-grid, .stats-flex, .itinerary-grid, .form-row, .converter-results {
+  .grid-2, .services-grid, .dest-grid, .testimonial-grid, .gallery-grid, .footer-grid, .itinerary-grid, .form-row, .converter-results {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
   }
 
-  .stats-flex { gap: 20px; }
-  .portrait-img-box { height: 280px; }
+  /* Fix Stats Bar Teks Kepotong */
+  .stats-bar {
+    padding: 30px 0;
+  }
+  .stats-flex {
+    grid-template-columns: 1fr;
+    display: grid;
+    gap: 20px;
+    padding: 0 16px;
+  }
+  .stat-box h3 {
+    font-size: 1.8rem;
+  }
+  .stat-box p {
+    font-size: 0.8rem;
+  }
+
+  .portrait-img-box { height: 260px; }
 
   .countdown-banner {
     flex-direction: column;
     text-align: center;
-    gap: 16px;
-    padding: 18px 16px;
+    gap: 14px;
+    padding: 16px 12px;
   }
   
-  .countdown-timer { width: 100%; justify-content: center; gap: 8px; }
-  .timer-box { min-width: 48px; padding: 8px 6px; }
-  .timer-box span { font-size: 1.1rem; }
+  .countdown-timer { width: 100%; justify-content: center; gap: 6px; }
+  .timer-box { min-width: 44px; padding: 6px 4px; }
+  .timer-box span { font-size: 1rem; }
 
-  .converter-box { padding: 20px 16px; }
+  .converter-box { padding: 18px 12px; }
   .newsletter-form { flex-direction: column; }
   .newsletter-form button { width: 100%; }
 
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .gallery-item { height: 160px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .gallery-item { height: 140px; }
 
-  .whatsapp-float { padding: 10px 14px; font-size: 0.78rem; bottom: 20px; right: 20px; }
-  .audio-float-btn { bottom: 20px; left: 20px; padding: 10px 14px; }
+  .whatsapp-float { padding: 8px 12px; font-size: 0.75rem; bottom: 16px; right: 16px; }
+  .audio-float-btn { bottom: 16px; left: 16px; padding: 8px 12px; }
 
-  .modal-content { padding: 24px 18px; width: 92%; }
-  .carousel-container { height: 200px; }
-  .carousel-slide img { height: 200px; }
+  .modal-content { padding: 20px 14px; width: 94%; }
+  .carousel-container { height: 180px; }
+  .carousel-slide img { height: 180px; }
 }
