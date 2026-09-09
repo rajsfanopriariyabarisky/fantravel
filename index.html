@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FanTravel — Bespoke Overseas Expeditions & Luxury Travel</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Syne:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">FanTravel<span>.</span></div>
+    
+    <!-- Hamburger Button untuk Mobile -->
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="closeMobileMenu()">Story</a></li>
+      <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+      <li><a href="#schedule" onclick="closeMobileMenu()">Schedules</a></li>
+      <li><a href="#currency" onclick="closeMobileMenu()">Converter</a></li>
+      <li><a href="#destinations" onclick="closeMobileMenu()">Destinations</a></li>
+      <li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
+      <li><a href="#reviews" onclick="closeMobileMenu()">Reviews</a></li>
+      <li><a href="#contact" class="btn-nav" onclick="closeMobileMenu()">Inquire</a></li>
+      <li>
+        <button id="themeToggle" class="theme-toggle-btn" onclick="toggleTheme()" title="Switch Theme">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero reveal">
+    <div class="hero-bg-wrapper">
+      <img src="foto/hero-bg.jpg" alt="Mount Fuji Winter" class="hero-img">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <span class="tagline">PRIVATE OVERSEAS EXPEDITIONS</span>
+      <h1>Beyond Horizon.<br>Into Pure Wonder.</h1>
+      <p class="hero-desc">Mengurasi pengalaman perjalanan privat berkelas tinggi lintas benua. Dari kemegahan pegunungan Alpen Swiss hingga keheningan autentik kebudayaan Asia.</p>
+      
+      <!-- Weather Widget -->
+      <div class="weather-widget">
+        <div class="weather-item">
+          <span class="loc">Kyoto, JP</span>
+          <span class="temp">14°C 🌸</span>
+        </div>
+        <div class="weather-divider"></div>
+        <div class="weather-item">
+          <span class="loc">Zermatt, CH</span>
+          <span class="temp">-3°C ❄️</span>
+        </div>
+        <div class="weather-divider"></div>
+        <div class="weather-item">
+          <span class="loc">Dubrovnik, HR</span>
+          <span class="temp">18°C ☀️</span>
+        </div>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="#schedule" class="btn-primary">View Upcoming Schedules</a>
+        <a href="#destinations" class="btn-secondary">Explore Itineraries</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Stats Bar -->
+  <section class="stats-bar reveal">
+    <div class="container stats-flex">
+      <div class="stat-box">
+        <h3>1,250+</h3>
+        <p>Discerning Travelers Escorted</p>
+      </div>
+      <div class="stat-box">
+        <h3>100%</h3>
+        <p>Tailor-Made Itineraries</p>
+      </div>
+      <div class="stat-box">
+        <h3>42</h3>
+        <p>Private Alpine & Island Sanctuaries</p>
+      </div>
+      <div class="stat-box">
+        <h3>99.4%</h3>
+        <p>Client Satisfaction Rate</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about reveal">
+    <div class="container grid-2">
+      <div class="about-text">
+        <span class="section-tag">OUR PHILOSOPHY</span>
+        <h2>Designed for the Curious & Discerning Souls.</h2>
+        <p>FanTravel berdiri dengan satu misi sederhana: mendefinisikan ulang kemewahan dalam berpetualang. Kami percaya bahwa ekspedisi terbaik bukan tentang keramaian destinasi populer, melainkan ketenangan momen saat menatap tarian aurora atau heningnya lanskap es di tempat terisolasi.</p>
+        <p class="sub-p">Setiap rute yang kami susun diperlakukan sebagai karya seni yang unik—dirancang khusus mengikuti ritme, kenyamanan, dan privasi penuh hidup Anda.</p>
+      </div>
+      <div class="about-img-box">
+        <img src="foto/about-us.jpg" alt="Traditional Japanese Interior View" class="about-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlight Section -->
+  <section id="highlight" class="portrait-highlight reveal">
+    <div class="container grid-2">
+      <div class="portrait-img-box">
+        <img src="foto/swissalps.jpg" alt="Swiss Alps High Altitude Sanctuary" class="portrait-img">
+      </div>
+      <div class="portrait-text">
+        <span class="section-tag">EDITORIAL SPOTLIGHT</span>
+        <h2>Sanctuary Above The Clouds.</h2>
+        <p>Menginap di puncak Alpen bukan lagi sekadar pilihan akomodasi, melainkan sebuah sanctuary privat. Kami menyediakan akses eksklusif ke chalet terisolasi di ketinggian 3.000 meter—dilengkapi helicopter pad pribadi, infinity hot-tub menatap puncak es, dan layanan chef pribadi bintang Michelin.</p>
+        <div class="quote-box">
+          <p>"Silence is the ultimate luxury of modern travel."</p>
+          <span>— FanTravel Alpine Expedition Team</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedules + Live Countdown Timer -->
+  <section id="schedule" class="schedule-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">NEXT EXPEDITION DEPARTURE</span>
+        <h2>Upcoming Schedules</h2>
+      </div>
+      
+      <!-- Countdown Banner -->
+      <div class="countdown-banner">
+        <div class="countdown-text">
+          <span>NEXT DEPARTURE:</span>
+          <h4>Kyoto & Swiss Alps Expedition</h4>
+        </div>
+        <div class="countdown-timer">
+          <div class="timer-box"><span id="days">00</span><p>Days</p></div>
+          <div class="timer-box"><span id="hours">00</span><p>Hours</p></div>
+          <div class="timer-box"><span id="mins">00</span><p>Mins</p></div>
+          <div class="timer-box"><span id="secs">00</span><p>Secs</p></div>
+        </div>
+      </div>
+
+      <div class="schedule-table-wrapper">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Destination</th>
+              <th>Date & Season</th>
+              <th>Availability</th>
+              <th>Experience Type</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Kyoto & Swiss Alps Dual-Expedition</strong></td>
+              <td>15 Nov - 24 Nov 2026</td>
+              <td><span class="badge limited">2 Seats Left</span></td>
+              <td>Autumn & Early Snow Private Tour</td>
+              <td><button class="btn-book" onclick="openBookingModal('Kyoto & Swiss Alps Dual-Expedition')">Reserve Seat</button></td>
+            </tr>
+            <tr>
+              <td><strong>Switzerland Alpine Winter Retreat</strong></td>
+              <td>05 Dec - 14 Dec 2026</td>
+              <td><span class="badge available">Available</span></td>
+              <td>Helicopter Ski & Chalet Sanctuary</td>
+              <td><button class="btn-book" onclick="openBookingModal('Switzerland Alpine Winter Retreat')">Reserve Seat</button></td>
+            </tr>
+            <tr>
+              <td><strong>Croatia & Northern Aurora Hunt</strong></td>
+              <td>10 Jan - 18 Jan 2027</td>
+              <td><span class="badge available">Available</span></td>
+              <td>Private Yacht & Aurora Glamping</td>
+              <td><button class="btn-book" onclick="openBookingModal('Croatia & Northern Aurora Hunt')">Reserve Seat</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Currency Converter Section -->
+  <section id="currency" class="currency-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ESTIMATION TOOL</span>
+        <h2>Luxury Currency Converter</h2>
+      </div>
+      <div class="converter-box">
+        <div class="converter-input-group">
+          <label>Budget Estimate (IDR - Rupiah)</label>
+          <input type="number" id="idrInput" placeholder="e.g. 50000000" value="50000000" oninput="convertCurrency()">
+        </div>
+        <div class="converter-results">
+          <div class="currency-card">
+            <span class="curr-code">JPY (Yen - Japan)</span>
+            <h3 id="jpyResult">¥ 0</h3>
+          </div>
+          <div class="currency-card">
+            <span class="curr-code">CHF (Franc - Swiss)</span>
+            <h3 id="chfResult">CHF 0</h3>
+          </div>
+          <div class="currency-card">
+            <span class="curr-code">EUR (Euro - Croatia)</span>
+            <h3 id="eurResult">€ 0</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">OUR EXCLUSIVE OFFERINGS</span>
+        <h2>What We Provide</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">01</div>
+          <h3>Private Aviation & Charters</h3>
+          <p>Layanan jet pribadi dan helikopter transfer untuk menjangkau destinasi terpencil dengan fleksibilitas jadwal 100% di tangan Anda.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">02</div>
+          <h3>Sanctuary Accommodations</h3>
+          <p>Akses ke private chalet, villa tersembunyi, hingga ryokan bersejarah yang tidak terdaftar di platform pemesanan umum.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">03</div>
+          <h3>Dedicated 24/7 Concierge</h3>
+          <p>Tim personal assistant yang mengurus segala urusan logistik, pengawalan privasi, hingga kebutuhan mendadak selama ekspedisi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Destinations -->
+  <section id="destinations" class="destinations reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">FEATURED JOURNEYS (CLICK FOR DETAIL)</span>
+        <h2>Explore Routes & Map</h2>
+      </div>
+
+      <div class="dest-grid">
+        <div class="dest-card clickable" onclick="openItineraryModal('japan')">
+          <div class="card-image">
+            <img src="foto/dest-japan1.jpg" alt="Japan Fuji View">
+            <span class="click-badge">Click to View Map & Details</span>
+          </div>
+          <div class="card-content">
+            <span class="country">EAST ASIA • 7 DAYS 6 NIGHTS</span>
+            <h3>Japan: Eternal Grace</h3>
+            <p>Tokyo - Mount Fuji - Kyoto Ancient Temples. Klik untuk melihat peta rute & gallery slider.</p>
+          </div>
+        </div>
+
+        <div class="dest-card clickable" onclick="openItineraryModal('switzerland')">
+          <div class="card-image">
+            <img src="foto/dest-switzerland.jpg" alt="Switzerland Mountains">
+            <span class="click-badge">Click to View Map & Details</span>
+          </div>
+          <div class="card-content">
+            <span class="country">CENTRAL EUROPE • 8 DAYS 7 NIGHTS</span>
+            <h3>Switzerland: Alpine Peaks</h3>
+            <p>Zurich - Zermatt Matterhorn - St. Moritz Glacier Express. Klik untuk melihat peta rute & slider.</p>
+          </div>
+        </div>
+
+        <div class="dest-card clickable" onclick="openItineraryModal('croatia')">
+          <div class="card-image">
+            <img src="foto/dest-croatia.jpg" alt="Aurora Borealis">
+            <span class="click-badge">Click to View Map & Details</span>
+          </div>
+          <div class="card-content">
+            <span class="country">SOUTH-EAST EUROPE • 6 DAYS 5 NIGHTS</span>
+            <h3>Croatia & Aurora Lights</h3>
+            <p>Dubrovnik - Plitvice Lakes - Aurora Sky Lodge. Klik untuk melihat peta rute & slider.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section id="faq" class="faq-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">EXCLUSIVE INQUIRIES</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="accordion-wrapper">
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Apakah itinerary bisa disesuaikan 100% saat perjalanan berlangsung?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Tentu. Seluruh ekspedisi FanTravel didampingi Dedicated Concierge yang siap menyesuaikan rute, jam keberangkatan charter, atau penambahan destinasi secara real-time mengikuti kenyamanan Anda.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Bagaimana penanganan dokumen visa VIP & proteksi privasi keluarga?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Tim legal kami mengurus seluruh proses visa melalui jalur fast-track kedutaan. Privasi Anda terjamin lewat Non-Disclosure Agreement (NDA) ketat dan pengawalan akses privat di setiap akomodasi.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Apakah ada batasan kapasitas untuk armada jet pribadi & helikopter?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Armada kami bervariasi mulai dari light-jet (4–6 penumpang) hingga heavy-jet antarbenua (12–16 penumpang). Jenis armada akan disesuaikan dengan jumlah rombongan keluarga atau eksekutif Anda.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews & Rating Section -->
+  <section id="reviews" class="reviews-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">GUEST EXPERIENCES & FEEDBACK</span>
+        <h2>Client Reviews & Ratings</h2>
+      </div>
+
+      <div class="rating-overview">
+        <div class="rating-num">4.9<span>/5.0</span></div>
+        <div class="rating-stars-static">★★★★★</div>
+        <p>Based on 128 Verified Luxury Expedition Reviews</p>
+      </div>
+
+      <div class="testimonial-grid" id="testimonialList">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Pengaturan jet pribadi dan helikopter ke chalet di Zermatt murni tanpa celah. Privasi keluarga kami sangat terjaga dari awal hingga akhir."</p>
+          <div class="reviewer-info">
+            <h4>Budi Santoso</h4>
+            <span>Managing Director • Travelled to Switzerland</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Menikmati keheningan Kyoto di ryokan privat yang tidak bisa diakses publik adalah pengalaman luar biasa. Pelayanan concierge 24 jam sangat responsif!"</p>
+          <div class="reviewer-info">
+            <h4>Helena Wijaya</h4>
+            <span>Art Collector • Travelled to Japan</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="add-review-box">
+        <h3>Leave Your Experience & Star Rating</h3>
+        <form id="reviewForm" onsubmit="handleReviewSubmit(event)">
+          <div class="form-row">
+            <input type="text" id="reviewerName" placeholder="Your Full Name / Title" required>
+            <select id="starRating" required>
+              <option value="5">★★★★★ (5 Stars - Exceptional)</option>
+              <option value="4">★★★★☆ (4 Stars - Great)</option>
+              <option value="3">★★★☆☆ (3 Stars - Average)</option>
+            </select>
+          </div>
+          <textarea id="reviewerComment" rows="3" placeholder="Share your experience during the private expedition..." required></textarea>
+          <button type="submit" class="btn-primary">Post Review & Rating</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Gallery Section -->
+  <section id="gallery" class="gallery reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">VISUAL GALLERY</span>
+        <h2>Glimpse of Extraordinary</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="foto/dest-japan2.jpg" alt="Japan Culture"></div>
+        <div class="gallery-item"><img src="foto/dest-switzerland2.jpg" alt="Swiss Alps"></div>
+        <div class="gallery-item"><img src="foto/dest-croatia2.jpg" alt="Croatia Aurora"></div>
+        <div class="gallery-item"><img src="foto/dest-japan3.jpg" alt="Japan Cherry Blossom"></div>
+        <div class="gallery-item"><img src="foto/dest-switzerland3.jpg" alt="Swiss Lake"></div>
+        <div class="gallery-item"><img src="foto/dest-croatia3.jpg" alt="Night Aurora"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo">FanTravel<span>.</span></div>
+        <p>Luxury overseas expeditions and bespoke travel management crafted for distinguished travelers worldwide.</p>
+        <div class="social-links">
+          <a href="https://instagram.com" target="_blank">Instagram</a>
+          <a href="https://facebook.com" target="_blank">Facebook</a>
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+          <a href="https://wa.me/6281234567890" target="_blank">WhatsApp VIP</a>
+        </div>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Headquarters</h4>
+        <p>Vanguard Tower, 28th Floor<br>SCBD Zone 5, Jakarta Selatan, Indonesia</p>
+        <p class="copyable-info" onclick="copyToClipboard('concierge@fantravel.com', 'Email Address Copied!')">
+          Email: <span>concierge@fantravel.com</span> 
+        </p>
+        <p class="copyable-info" onclick="copyToClipboard('+62215558889', 'Phone Number Copied!')">
+          Phone: <span>+62 (21) 555-8889</span> 
+        </p>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Private Newsletter</h4>
+        <p>Dapatkan undangan khusus rute ekspedisi dan akses sanctuary terbatas.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Terima kasih telah mendaftar private newsletter FanTravel.');">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 FanTravel Journeys Ltd. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Ambient Sound Toggle Button & Audio Tag -->
+  <audio id="ambientAudio" src="foto/ambient.mp3" loop></audio>
+  <button id="audioToggle" class="audio-float-btn" onclick="toggleAudio()" title="Toggle Ambient Sound">
+    <span id="audioIcon">🔇</span>
+  </button>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/6281234567890" target="_blank" class="whatsapp-float" title="Chat with Concierge">
+    <span class="wa-pulse"></span>
+    <span class="wa-icon">💬</span>
+    <span class="wa-text">Talk to Concierge</span>
+  </a>
+
+  <!-- Toast Notification Element -->
+  <div id="toast" class="toast">Text copied to clipboard!</div>
+
+  <!-- Modals -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeBookingModal()">&times;</span>
+      <span class="section-tag">EXPEDITION RESERVATION</span>
+      <h3 id="modalPackageName">Package Name</h3>
+      <form class="booking-form" onsubmit="handleBookingSubmit(event)">
+        <div class="form-group">
+          <label>Nama Lengkap</label>
+          <input type="text" placeholder="Masukkan nama sesuai paspor" required>
+        </div>
+        <div class="form-group">
+          <label>Email Utama</label>
+          <input type="email" placeholder="contoh@domain.com" required>
+        </div>
+        <div class="form-group">
+          <label>Nomor WhatsApp / Phone</label>
+          <input type="tel" placeholder="+62 812..." required>
+        </div>
+        <div class="form-group">
+          <label>Jumlah Tamu</label>
+          <input type="number" min="1" max="10" value="2" required>
+        </div>
+        <button type="submit" class="btn-primary btn-full">Submit Reservation Request</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="successModal" class="modal">
+    <div class="modal-content text-center">
+      <div class="success-icon-wrap">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+      <span class="section-tag">RESERVATION CONFIRMED</span>
+      <h2>Expedition Reserved!</h2>
+      <p>Terima kasih. Permintaan reservasi Anda telah berhasil dicatat. Senior Concierge kami akan menghubungi Anda via WhatsApp dalam waktu 1x24 jam.</p>
+      <button class="btn-primary" onclick="closeSuccessModal()">Done & Continue</button>
+    </div>
+  </div>
+
+  <div id="itineraryModal" class="modal">
+    <div class="modal-content modal-large">
+      <span class="close-btn" onclick="closeItineraryModal()">&times;</span>
+      <span class="section-tag" id="itinTag">DESTINATION DETAILS</span>
+      <h2 id="itinTitle">Japan: Eternal Grace</h2>
+
+      <div class="carousel-container">
+        <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="carousel-slide">
+          <img id="carouselImg" src="foto/dest-japan1.jpg" alt="Destination Slide">
+        </div>
+        <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+        <div class="carousel-caption" id="carouselCaption">Slide 1 of 3</div>
+      </div>
+
+      <div class="itinerary-grid">
+        <div class="itin-map-box">
+          <div class="duration-badge" id="itinDuration">7 Days / 6 Nights</div>
+          <h3>Route Map Illustration</h3>
+          <div class="map-illustration">
+            <svg class="route-svg" viewBox="0 0 300 150">
+              <path d="M 30,100 Q 120,20 270,80" fill="none" stroke="#0284c7" stroke-width="4" stroke-dasharray="6"/>
+              <circle cx="30" cy="100" r="8" fill="#0f172a"/>
+              <circle cx="150" cy="50" r="8" fill="#0284c7"/>
+              <circle cx="270" cy="80" r="8" fill="#0f172a"/>
+              <text x="15" y="125" font-size="11" fill="#0f172a" font-weight="bold">Start</text>
+              <text x="135" y="30" font-size="11" fill="#0284c7" font-weight="bold">Mid-Point</text>
+              <text x="250" y="105" font-size="11" fill="#0f172a" font-weight="bold">Sanctuary</text>
+            </svg>
+          </div>
+          <p class="map-desc" id="itinMapDesc">Rute penerbangan charter dan transfer privat telah dirancang agar bebas dari antrean umum.</p>
+        </div>
+
+        <div class="itin-timeline" id="itinTimeline">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
